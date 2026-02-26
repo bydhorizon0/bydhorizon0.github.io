@@ -23,8 +23,8 @@
         <!-- 가운데 메뉴: 왼쪽에 padding 주기 -->
         <nav class="flex justify-center items-center h-full space-x-8 text-sm sm:text-base max-w-xs mx-auto">
           <a href="#intro-section" class="hover:text-gray-500">소개</a>
-          <a href="#skill-section" class="hover:text-gray-500">기술</a>
-          <a href="#project-section" class="hover:text-gray-500">프로젝트</a>
+          <a href="#project-section" class="hover:text-gray-500">경력기술</a>
+          <a href="#skill-section" class="hover:text-gray-500">보유기술</a>
         </nav>
 
       </div>
@@ -48,9 +48,9 @@
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div class="lg:pt-4 lg:pr-8">
               <div class="lg:max-w-lg">
-                <p class="mt-2 text-xl font-semibold tracking-tight text-pretty text-white">( ) =>
-                  GetRandomMovieImage();</p>
-                <p class="mt-6 text-lg/8 text-gray-300">좋은 코드를 작성하기 위해 노력하고 다양한 기술을 탐구하고 사용해보는 것을 좋아합니다! 😊</p>
+                <p class="mt-2 text-xl font-semibold tracking-tight text-pretty text-white">안녕하세요!</p>
+                <p class="mt-6 text-lg/8 text-gray-300">3년차 개발자로 백엔드 및 대규모 스크래핑 경험이 있습니다.</p>
+                <p class="mt-6 text-lg/8 text-gray-300">좋은 코드를 작성하기 위해 노력하고 다양한 기술을 탐구하고 사용해보는 것을 좋아합니다.</p>
                 <p class="mt-6 text-lg/8 text-gray-300">최근 관심사는 생성형 AI를 사용한 효율적인 바이브 코딩입니다!</p>
               </div>
             </div>
@@ -68,14 +68,98 @@
     </div>
   </section>
 
+  <section id="project-section" aria-label="개요"
+    class="flex min-h-screen flex-col items-center justify-center px-6 pb-20 pt-10 text-center space-y-8 max-w-4xl mx-auto">
+    <h2 class="text-4xl font-bold">경력기술</h2>
+
+    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
+      <p class="font-bold text-base text-left">공고수집 현황 사이트</p>
+
+      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
+        <p>
+          스크래핑으로 수집한 데이터를 각종 차트를 사용해 시각화하였습니다. spring boot로 API를 작성하고 react 및 high chart 라이브러리를 사용했습니다.
+        </p>
+        <p>
+          지역별로 수집된 데이터, 시군구별 수집된 데이터, 금일 수집된 데이터 등 필요한 정보를 파악하기 쉽게 표현했습니다. 기초적인 react hooks를 사용해 프론트엔드를 간단히 다루었습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
+      <p class="font-bold text-base text-left">비동기 기반 스크래핑</p>
+
+      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
+        <p>
+          사용한 기술로는 Java, Python, Selenium, Playwright 입니다. 
+          Java는 Spring boot와 CompletableFuture를 사용하고 Python은 Playwright에서 지원하는 비동기 API와 asyncio 를 적극적으로 사용하여 비동기 수집을 진행했으며 약 1000개 이상의 페이지네이션기반 사이트를 대상으로 5페이지씩 매일 수집하고 있습니다.
+        </p>
+        <p>
+          네트워크 I/O에 따라 수집에 소모되는 시간의 차이가 있지만 약 1000개 이상의 사이트에서 5,000 ~ 10,000건의 데이터를 수집하고 있습니다. 자동화 탐지 회피를 위해 User-Agent, 브라우저 옵션, 렌더링 지연, Proxy 등을 사용했습니다.
+        </p>
+      </div>
+    </div>
+    
+    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
+      <p class="font-bold text-base text-left">PDF Converter</p>
+
+      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
+        <p>
+          hwp(한글), xlsx(엑셀), docx(워드), txt, pdf, jpg 등 의 파일들을 pdf 파일로 변환하는 프로젝트입니다.
+        </p>
+        <p>
+          COM 객체를 쉽게 사용할 수 있는 파이썬을 사용해 prefix로 설정한 폴더를 대상으로 변환 설정한 확장자를 pdf 파일로 변환합니다(클라우드 폴더와 동기화). 
+          COM 객체를 다루기 위해 pywin32라는 오픈 소스를 사용했으며 파일 변환은 주로 I/O bound 가 대부분이지만 빠른 처리를 위해 멀티프로세싱을 사용했습니다.
+        </p>
+        <p>
+          프로세스 흐름은 다음과 같습니다 : AWS S3 첨부 파일 다운로드(병렬) -> 첨부파일 PDF 변환(병렬) -> 변환된 첨부파일 AWS S3에 업로드(병렬)
+        </p>
+        <p>
+          사람이 수작업으로 처리하던 '파일 변환 후 업로드'를 모두 자동화 처리하여 인건비 및 외부 솔루션을 구매하지 않아 큰 비용 절감을 했습니다.
+        </p>
+      </div>
+    </div>
+
+    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
+      <p class="font-bold text-base text-left">충북 & 충남 지역 데이터 시스템</p>
+
+      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
+        <p>
+          충청남도와 충청북도 TP에서 사용하는 성과 관리 및 지역 데이터 시스템입니다.
+        </p>
+        <p>
+          충남, 충북 지역 데이터를 조회하는 고객에게 Echart 라이브러리를 사용해 데이터를 시각화하여 제공하고 있습니다. 
+          내부적으로 사용하는 성과관리는 엑셀로 처리되고 있으며 양식에 맞게 엑셀을 업로드하여 데이터베이스에 저장되고 데이터를 조회할 땐 데이터베이스의 자료를 엑셀로 다운로드하는 서비스입니다.
+        </p>
+        <p>
+          충북: <a href="http://smart.cbtp.or.kr/login" class="text-yellow-500">서비스로 이동하기</a>
+        </p>
+        <p>
+          충남: <a href="http://data.ctp.or.kr/login" class="text-yellow-500">서비스로 이동하기</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
+      <p class="font-bold text-base text-left">정책자금 매칭서비스</p>
+
+      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
+        <p>
+          MSA 프로젝트로 Spring cloud eureka를 사용했으며 PAMs라는 서비스로 시작하여 금융권, 공공기관만 대상으로 하던 B2B 서비스를 개편 후 B2B, B2C 대상으로 확대하였습니다.
+        </p>
+        <p>
+          정부지원 사업공고, 융자공고를 수집 후 가공하여 서비스하고 있습니다. 정부지원 사업공고를 조건에 알맞는 기업에 서비스하고 있으며, 추가로 금융감독원에서 제공하는 금융상품을 기업의 정보를 바탕으로 매칭하여 금융상품을 추천 및 중개해주는 서비스를 하고 있습니다.
+        </p>
+        <p>
+          <a href="https://bizmoney.ai/O_SD00" class="text-yellow-500">서비스로 이동하기</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section id="skill-section" aria-label="개요"
     class="flex min-h-screen flex-col items-center justify-center px-6 pb-20 pt-10 text-center">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-4xl font-bold">보유 기술</h2>
-      <p class="mt-4 text-lg">
-        개인적인 프로젝트를 진행할 때는 주로 C#을 사용합니다.
-        .NET 웹 프레임워크인 ASP.NET Core와 ORM인 Entity Framework Core를 주로 사용하여 웹앱을 개발하고 있습니다.
-      </p>
 
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
         <div
@@ -186,85 +270,6 @@
       </div>
     </div>
   </section>
-
-  <section id="project-section" aria-label="개요"
-    class="flex min-h-screen flex-col items-center justify-center px-6 pb-20 pt-10 text-center space-y-8 max-w-4xl mx-auto">
-    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
-      <!-- 왼쪽: 고정 너비 -->
-      <p class="font-bold text-base text-left">
-        멀티프로세서 기반 PDF 변환 프로그램
-      </p>
-      <!-- 오른쪽 -->
-      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
-        <p>
-          각 사이트에 첨부된 hwp, xlsx(엑셀), docx(워드), txt, pdf, jpg 등 의 파일들을 pdf 파일로 변환하는 프로젝트입니다.
-        </p>
-        <p>
-          COM 객체를 쉽게 사용할 수 있는 파이썬을 사용해 prefix로 설정한
-          폴더를 대상으로 변환 설정한 확장자를 pdf 파일로 변환합니다.
-        </p>
-        <p>
-          COM 객체를 다루기 위해 pywin32라는 오픈 소스를 사용했으며 파일
-          변환은 주로 I/O bound 가 대부분이지만 엑셀의 빠른 셀 처리를 위해
-          멀티프로세싱을 사용했습니다.
-        </p>
-      </div>
-    </div>
-
-    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
-      <p class="font-bold text-base text-left">정책 차트 사이트</p>
-      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
-        <p>
-          수집된 공고들의 현황을 보여주는 사이트입니다. 사용한 기술로는 Spring
-          boot, React, Highcharts library 입니다.
-        </p>
-        <p>
-          처음 React를 사용해보는 프로젝트로 React의 중요한 개념인 Hooks를
-          학습하는데 큰 도움이 됐습니다.
-        </p>
-        <p>
-          Docker compose를 사용했으며 API 서버, Frontend, DB를 각각 컨테이너로
-          만들어 적용했습니다.
-        </p>
-      </div>
-    </div>
-
-    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
-      <p class="font-bold text-base text-left">비동기 공고 수집기</p>
-      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
-        <p>
-          사용한 기술로는 Spring boot, Selenium 입니다. 자동화 탐지 회피, robots,
-          개발자모드 접근 제한 등 웹 상의 고려사항을 최대한 회피하여 수집했습니다.
-        </p>
-        <p>
-          자동화 탐지 회피를 위해 스크래핑 중간에 랜덤값을 주어 대기합니다. 동기식
-          스크래핑은 네트워크 I/O에 상당한 시간이 소모되어 수집 시간이 상당히
-          오래걸립니다.
-        </p>
-        <p>
-          동기식의 단점을 보완하고자 ExecutorService로 멀티쓰레드를 사용해 다수의
-          사이트를 비동기로 수집했습니다.
-        </p>
-      </div>
-    </div>
-
-    <div class="py-5 border-b border-gray-200 md:grid md:grid-cols-[150px_1fr] md:gap-6 hover:bg-slate-800 transition">
-      <p class="font-bold text-base text-left">충북 & 충남 지역 데이터 시스템</p>
-      <div class="mt-4 md:mt-0 space-y-2 text-sm leading-relaxed text-left">
-        <p>
-          사용한 기술로는 Spring boot와 EChart.js 를 사용해서 충북과 충남 지역의
-          데이터를 시각화하는 시스템입니다.
-        </p>
-        <p>
-          충북: <a href="http://smart.cbtp.or.kr/login">http://smart.cbtp.or.kr/login</a>
-        </p>
-        <p>
-          충남: <a href="http://data.ctp.or.kr/login">http://data.ctp.or.kr/login</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
 
   <footer class="border-t border-t-gray-600 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
