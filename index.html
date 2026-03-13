@@ -96,6 +96,9 @@
         <p>
           네트워크 I/O에 따라 수집에 소모되는 시간의 차이가 있지만 약 1000개 이상의 사이트에서 5,000 ~ 10,000건의 데이터를 수집하고 있습니다. 자동화 탐지 회피를 위해 User-Agent, 브라우저 옵션, 렌더링 지연, Proxy 등을 사용했습니다.
         </p>
+        <p>
+          <a href="https://github.com/bydhorizon0/async_crawler" class="text-yellow-500">프로젝트로 이동</a>
+        </p>
       </div>
     </div>
     
@@ -107,11 +110,11 @@
           hwp(한글), xlsx(엑셀), docx(워드), txt, pdf, jpg 등 의 파일들을 pdf 파일로 변환하는 프로젝트입니다.
         </p>
         <p>
-          COM 객체를 쉽게 사용할 수 있는 파이썬을 사용해 prefix로 설정한 폴더를 대상으로 변환 설정한 확장자를 pdf 파일로 변환합니다(클라우드 폴더와 동기화). 
-          COM 객체를 다루기 위해 pywin32라는 오픈 소스를 사용했으며 파일 변환은 주로 I/O bound 가 대부분이지만 빠른 처리를 위해 멀티프로세싱을 사용했습니다.
+          COM 객체를 쉽게 사용할 수 있는 C#(.NET8)을 사용해 prefix로 설정한 폴더를 대상으로 변환 대상 확장자를 pdf 파일로 변환합니다. 
+          CPU + I/O bound 작업이고 많은 COM 객체가 STA 모델을 사용하기 때문에 빠른 변환을 위하여 병렬(Parallel)로 처리했습니다.
         </p>
         <p>
-          프로세스 흐름은 다음과 같습니다 : AWS S3 첨부 파일 다운로드(병렬) -> 첨부파일 PDF 변환(병렬) -> 변환된 첨부파일 AWS S3에 업로드(병렬)
+          AWS S3 첨부 파일 다운로드(병렬) -> 첨부파일 PDF 변환(병렬) -> 변환된 첨부파일 AWS S3에 업로드(병렬)
         </p>
         <p>
           사람이 수작업으로 처리하던 '파일 변환 후 업로드'를 모두 자동화 처리하여 인건비 및 외부 솔루션을 구매하지 않아 큰 비용 절감을 했습니다.
@@ -131,10 +134,10 @@
           내부적으로 사용하는 성과관리는 엑셀로 처리되고 있으며 양식에 맞게 엑셀을 업로드하여 데이터베이스에 저장되고 데이터를 조회할 땐 데이터베이스의 자료를 엑셀로 다운로드하는 서비스입니다.
         </p>
         <p>
-          충북: <a href="http://smart.cbtp.or.kr/login" class="text-yellow-500">서비스로 이동하기</a>
+          충북: <a href="http://smart.cbtp.or.kr/login" class="text-yellow-500">서비스로 이동</a>
         </p>
         <p>
-          충남: <a href="http://data.ctp.or.kr/login" class="text-yellow-500">서비스로 이동하기</a>
+          충남: <a href="http://data.ctp.or.kr/login" class="text-yellow-500">서비스로 이동</a>
         </p>
       </div>
     </div>
@@ -150,7 +153,7 @@
           정부지원 사업공고, 융자공고를 수집 후 가공하여 서비스하고 있습니다. 정부지원 사업공고를 조건에 알맞는 기업에 서비스하고 있으며, 추가로 금융감독원에서 제공하는 금융상품을 기업의 정보를 바탕으로 매칭하여 금융상품을 추천 및 중개해주는 서비스를 하고 있습니다.
         </p>
         <p>
-          <a href="https://bizmoney.ai/O_SD00" class="text-yellow-500">서비스로 이동하기</a>
+          <a href="https://bizmoney.ai/O_SD00" class="text-yellow-500">서비스로 이동</a>
         </p>
       </div>
     </div>
@@ -273,7 +276,7 @@
 
   <footer class="border-t border-t-gray-600 text-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-      &copy; 2025 <a href="mailto:bydhorizon0@gmail.com">bydhorizon0@gmail.com</a>
+      &copy; 2026 <a href="mailto:bydhorizon0@gmail.com">bydhorizon0@gmail.com</a>
     </div>
   </footer>
 </body>
