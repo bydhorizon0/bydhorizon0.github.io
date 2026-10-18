@@ -1,0 +1,36 @@
+{
+  "name": "astro-resume",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "postinstall": "npx playwright install",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "generate-pdf": "node --experimental-strip-types ./scripts/generate-pdf.ts",
+    "generate-pdf:ci": "PDF_VIEW=true start-server-and-test http://localhost:4321 generate-pdf",
+    "prebuild": "astro check && tsc --noEmit",
+    "build": "yarn generate-pdf:ci && astro build",
+    "build:light": "FORCE_THEME=light astro build",
+    "build:dark": "FORCE_THEME=dark astro build"
+  },
+  "devDependencies": {
+    "@fontsource/poppins": "^5.3.0",
+    "@netlify/plugin-lighthouse": "^6.0.4",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/node": "^22.20.4",
+    "netlify-plugin-playwright-cache": "^0.0.1",
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "start-server-and-test": "^2.1.5",
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.10",
+    "astro": "^7.3.5"
+  }
+}
