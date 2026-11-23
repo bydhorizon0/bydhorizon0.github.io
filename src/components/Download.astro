@@ -8,7 +8,9 @@ const { href } = Astro.props as Props;
 
 <a
   download
-  class="text-slate-400 hover:text-slate-500 dark:text-slate-600"
+  aria-label="이력서 PDF 다운로드"
+  title="PDF 다운로드"
+  class="text-slate-400 transition-colors hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
   href={href}
   rel="noopener noreferrer"
 >

@@ -21,6 +21,7 @@ function forceThemeDarkMode() {
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://bydhorizon0.github.io",
   // PDF export runs against `astro dev`; keep the toolbar off so it never lands in the PDF
   devToolbar: { enabled: !pdfView },
   vite: {

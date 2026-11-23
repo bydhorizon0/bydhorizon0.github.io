@@ -8,8 +8,9 @@ const main = async (): Promise<void> => {
 
   await page.emulateMedia({ media: "screen" });
 
-  // Remove Astro/Vite dev overlay if present (generate-pdf:ci uses `astro dev`)
-  await page.evaluate(() => {
+  // Wait for webfonts (Pretendard, Poppins) and remove Astro/Vite dev overlay if present
+  await page.evaluate(async () => {
+    await document.fonts.ready;
     document
       .querySelectorAll("astro-dev-toolbar, #dev-toolbar")
       .forEach((el) => el.remove());
@@ -17,7 +18,8 @@ const main = async (): Promise<void> => {
 
   await page.pdf({
     path: "public/resume.pdf",
-    margin: { top: "10px", bottom: "10px", left: "12px", right: "12px" },
+    format: "A4",
+    margin: { top: "10mm", bottom: "10mm", left: "8mm", right: "8mm" },
     printBackground: true,
   });
 

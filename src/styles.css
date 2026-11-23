@@ -4,7 +4,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family:
+    "Pretendard Variable", "Pretendard", "Poppins", -apple-system,
+    BlinkMacSystemFont, system-ui, sans-serif;
+  word-break: keep-all;
 }
 
 ::selection {
@@ -12,29 +15,62 @@ body {
 }
 
 article.minimalist {
-  @apply prose prose-slate m-0
-    max-w-fit bg-white pl-20 pr-12 py-8 pt-20 dark:prose-invert prose-h1:text-3xl prose-h1:uppercase prose-h2:mb-3 prose-h2:mt-8 prose-h2:text-sm
-    prose-h2:uppercase prose-h2:text-slate-500
-    prose-h3:mb-3 prose-h3:mt-8 prose-h3:text-xl prose-h3:uppercase prose-h4:mb-3 
-    prose-h4:mt-4 prose-h4:text-sm prose-h4:text-slate-600 prose-p:my-2
-    prose-p:text-sm prose-p:leading-6 prose-a:font-bold prose-a:no-underline prose-a:transition-colors 
-    prose-a:hover:text-slate-400 prose-li:text-sm prose-table:mt-4 prose-thead:border-0
-    prose-th:p-0 prose-th:font-medium prose-td:p-0
-    prose-td:text-slate-500
-    dark:bg-slate-800
-    dark:prose-h4:text-slate-400  
-    sm:pl-28 sm:pr-24 sm:py-14
-    lg:max-w-4xl;
+  @apply prose prose-slate m-0 w-full max-w-4xl bg-white px-7 py-12 shadow-sm
+    dark:prose-invert dark:bg-slate-800
+    prose-h1:mb-2 prose-h1:text-3xl prose-h1:font-bold prose-h1:tracking-tight
+    prose-h2:mb-4 prose-h2:mt-9 prose-h2:border-b prose-h2:border-slate-200 prose-h2:pb-1.5 prose-h2:text-sm prose-h2:font-semibold prose-h2:tracking-wider prose-h2:text-indigo-600
+    dark:prose-h2:border-slate-700 dark:prose-h2:text-indigo-400
+    prose-h3:mb-1 prose-h3:mt-6 prose-h3:text-lg prose-h3:font-bold
+    prose-h4:mb-2 prose-h4:mt-1 prose-h4:text-sm prose-h4:font-medium prose-h4:text-slate-600
+    dark:prose-h4:text-slate-400
+    prose-p:my-2 prose-p:text-sm prose-p:leading-6
+    prose-a:font-semibold prose-a:text-indigo-600 prose-a:no-underline prose-a:transition-colors hover:prose-a:text-indigo-400 hover:prose-a:underline
+    dark:prose-a:text-indigo-400 dark:hover:prose-a:text-indigo-300
+    prose-ul:my-2 prose-li:my-1 prose-li:text-sm prose-li:leading-6
+    prose-code:rounded prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-xs prose-code:font-medium prose-code:text-slate-700 prose-code:before:content-none prose-code:after:content-none
+    dark:prose-code:bg-slate-700/70 dark:prose-code:text-slate-200
+    prose-table:mt-3 prose-table:text-sm prose-thead:border-b prose-thead:border-slate-200 dark:prose-thead:border-slate-700
+    prose-th:py-2 prose-th:pr-6 prose-th:text-left prose-th:align-top prose-th:font-semibold prose-th:whitespace-nowrap
+    prose-td:py-2 prose-td:pr-4 prose-td:align-top prose-td:text-slate-600 dark:prose-td:text-slate-300
+    sm:px-16 sm:py-14;
+}
+
+article.minimalist a {
+  text-decoration: none;
+}
+
+article.minimalist a:hover {
+  text-decoration: underline;
+}
+
+article.minimalist code {
+  display: inline-block;
+  font-family: inherit;
+  margin-bottom: 0.125rem;
 }
 
 /* Tighter spacing when exporting PDF (PDF_VIEW) — keeps screen layout unchanged */
 article.minimalist.pdf-view {
-  @apply py-2 pt-8 pl-14 pr-6 sm:py-3 sm:pt-8 sm:pl-16 sm:pr-8
-    prose-h1:mb-2 prose-h2:mb-1 prose-h2:mt-3 prose-h3:mb-1 prose-h3:mt-3 prose-h4:mb-0.5 prose-h4:mt-1.5
-    prose-p:my-0.5 prose-p:leading-5 prose-ul:my-1 prose-li:my-0 prose-table:my-1;
+  @apply shadow-none px-6 py-4 sm:px-8 sm:py-5
+    prose-h1:mb-1 prose-h1:text-2xl
+    prose-h2:mb-2 prose-h2:mt-5 prose-h2:pb-1 prose-h2:text-xs
+    prose-h3:mb-0.5 prose-h3:mt-3.5 prose-h3:text-base
+    prose-h4:mb-1 prose-h4:mt-0.5 prose-h4:text-xs
+    prose-p:my-1 prose-p:text-xs prose-p:leading-5
+    prose-ul:my-1 prose-li:my-0.5 prose-li:text-xs prose-li:leading-5
+    prose-table:my-1.5 prose-table:text-xs prose-th:py-1 prose-td:py-1;
 }
 
-/* Align initials badge with title row in PDF (matches pdf-view pt-8) */
-article.minimalist.pdf-view .initials-mark {
-  @apply top-8 left-2 sm:top-8;
+article.minimalist.pdf-view h2,
+article.minimalist.pdf-view h3,
+article.minimalist.pdf-view h4,
+article.minimalist.pdf-view h4 + p {
+  break-after: avoid;
+  page-break-after: avoid;
+}
+
+article.minimalist.pdf-view li,
+article.minimalist.pdf-view tr {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }

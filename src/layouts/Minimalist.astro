@@ -18,20 +18,20 @@ const FORCE_THEME = process.env.FORCE_THEME ?? "";
 
 const { title, pdfLink, noIndex, description } = Astro.props
   .frontmatter as Props["frontmatter"];
-
-// Firstname Lastname -> ['F', 'L']
-const initials = title
-  .split(" ")
-  .map(([initial]) => initial!.toUpperCase())
-  .slice(0, 2);
 ---
 
 <!doctype html>
-<html lang="en" class={FORCE_THEME}>
+<html lang="ko" class={FORCE_THEME}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+    />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description || title} />
     {noIndex && <meta name="robots" content="noindex" />}
@@ -56,21 +56,9 @@ const initials = title
   <body class={!PDF_VIEW ? "bg-indigo-50 dark:bg-slate-900 sm:my-14" : ""}>
     <div class="container mx-auto flex justify-center">
       <article class:list={["minimalist relative", PDF_VIEW && "pdf-view"]}>
-        <div
-          class:list={[
-            "initials-mark absolute top-20 sm:top-14 rounded-sm bg-indigo-400 px-4 py-0.5",
-            PDF_VIEW ? "left-2" : "left-4 sm:left-8",
-          ]}
-        >
-          <div
-            class="flex h-fit select-none flex-col items-center text-sm font-bold"
-          >
-            {initials.map((initial) => <span>{initial}</span>)}
-          </div>
-        </div>
         {
           !PDF_VIEW && (
-            <div class="not-prose absolute right-4 top-4 flex items-center gap-3">
+            <div class="not-prose absolute right-4 top-4 flex items-center gap-3 sm:right-6 sm:top-6">
               <ThemeToggle />
               <Download href={pdfLink} />
             </div>
@@ -79,6 +67,5 @@ const initials = title
         <slot />
       </article>
     </div>
-    <style></style>
   </body>
 </html>
